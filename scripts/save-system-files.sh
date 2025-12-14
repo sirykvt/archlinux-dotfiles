@@ -2,7 +2,7 @@
 
 # 1. Check if the script is run as root (via sudo)
 if [ "$EUID" -ne 0 ]; then
-  echo "Please run the script using sudo!"
+  echo "Error: Please run the script using sudo!"
   exit 1
 fi
 
@@ -12,7 +12,7 @@ if [ -n "$SUDO_USER" ]; then
     # Determine the user's group (usually matches the username, but better to check)
     REAL_GROUP=$(id -gn $SUDO_USER)
 else
-    echo "Could not determine SUDO_USER. Are you logged in directly as root?"
+    echo "Error: Could not determine SUDO_USER. Are you logged in directly as root?"
     exit 1
 fi
 
@@ -34,7 +34,7 @@ copy_file() {
         cp "$1" "$DEST$1"
         echo "$1 saved"
     else
-        echo "$1 not found (skipping)"
+        echo "Warning: $1 not found (skipping)"
     fi
 }
 

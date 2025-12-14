@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: Run reflector.
+
 # Stop the script if any command fails.
 set -e
 
@@ -15,6 +17,7 @@ cd -
 
 # zsh.
 sudo pacman -S --noconfirm --needed zsh
+yay -S --noconfirm --needed spaceship-prompt
 chsh -s /bin/zsh
 
 # Nvidia drivers. 
