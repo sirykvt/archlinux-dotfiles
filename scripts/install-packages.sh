@@ -31,7 +31,7 @@ sudo pacman -S --noconfirm --needed pipewire pipewire-pulse pipewire-alsa pipewi
 yay -S --noconfirm --needed pwvucontrol
 
 # Fonts.
-sudo pacman -S --noconfirm --needed ttf-jetbrains-mono-nerd ttf-noto-nerd
+sudo pacman -S --noconfirm --needed ttf-jetbrains-mono-nerd ttf-noto-nerd ttf-droid
 
 # WM (Hyprland).
 sudo pacman -S --noconfirm --needed hyprland uwsm hyprpolkitagent xorg-xwayland
