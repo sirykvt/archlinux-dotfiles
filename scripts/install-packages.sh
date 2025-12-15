@@ -5,14 +5,21 @@
 # Stop the script if any command fails.
 set -e
 
-sudo pacman -S --noconfirm --needed vi git github-cli
+mkdir -p ./tmp
 
 # yay.
-mkdir -p ./tmp
+
 rm -rf ./tmp/yay
 git clone https://aur.archlinux.org/yay.git ./tmp/yay
 cd ./tmp/yay || exit
 makepkg -si
+cd -
+
+rm -rf ./tmp/g810-led
+git clone https://github.com/sirykvt/g810-led.git ./tmp/g810-led
+cd ./tmp/g810-led || exit
+make || exit
+sudo make install || exit
 cd -
 
 # zsh.
@@ -34,10 +41,10 @@ sudo pacman -S --noconfirm --needed pipewire pipewire-pulse pipewire-alsa pipewi
 yay -S --noconfirm --needed pwvucontrol
 
 # Fonts.
-sudo pacman -S --noconfirm --needed ttf-jetbrains-mono-nerd ttf-noto-nerd ttf-droid
+sudo pacman -S --noconfirm --needed ttf-jetbrains-mono-nerd ttf-noto-nerd ttf-droid noto-fonts-emoji
 
 # WM (Hyprland).
-sudo pacman -S --noconfirm --needed uwsm hyprland hyprpolkitagent xdg-desktop-portal xdg-desktop-portal-hyprland xorg-xwayland hyprpaper
+sudo pacman -S --noconfirm --needed uwsm hyprland hyprpolkitagent xdg-desktop-portal xdg-desktop-portal-hyprland grim slurp geoclue xorg-xwayland hyprpaper
 yay -S --noconfirm --needed elephant-all ashell walker
 systemctl --user enable hyprpolkitagent
 
@@ -54,9 +61,21 @@ sudo pacman -S --noconfirm --needed kitty
 sudo pacman -S --noconfirm --needed yazi
 sudo pacman -S --noconfirm --needed btop
 
-# Apps.
+# Dev.
+## Common build dependencies.
+sudo pacman -S --noconfirm --needed gcc make cmake clang
+sudo pacman -S --noconfirm --needed libusb hidapi
+sudo pacman -S --noconfirm --needed dotnet-sdk
+
+## Git.
+sudo pacman -S --noconfirm --needed git github-cli
+
+## Code
 sudo pacman -S --noconfirm --needed code
-yay -S --noconfirm --needed google-chrome
+yay -S --noconfirm --needed rider
+
+# Apps.
+yay -S --noconfirm --needed google-chrome telegram-desktop
 
 # Games.
-yay -S --noconfirm --needed steam-native-runtime
+yay -S --noconfirm --needed steam
