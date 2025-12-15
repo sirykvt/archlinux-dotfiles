@@ -55,10 +55,9 @@ systemctl --user enable hyprpolkitagent
 
 # Appearance.
 sudo pacman -S --noconfirm --needed nwg-look gnome-themes-extra adw-gtk-theme papirus-icon-theme
-yay -S --noconfirm --needed kitty-gruvbox-theme-git 
 
 # Util.
-sudo pacman -S --noconfirm --needed gvfs thunar thunar-volman thunar-archive-plugin thunar-media-tags-plugin qt6ct
+sudo pacman -S --noconfirm --needed gvfs pcmanfm qt6ct fastfetch unzip
 
 # CLI.
 sudo pacman -S --noconfirm --needed imagemagick ffmpeg 7zip jq fd ripgrep fzf zoxide resvg chafa
@@ -76,7 +75,8 @@ sudo pacman -S --noconfirm --needed dotnet-sdk
 sudo pacman -S --noconfirm --needed git github-cli
 
 ## Code
-yay -S --noconfirm --needed rider visual-studio-code-bin 
+yay -S --noconfirm --needed neovim
+yay -S --noconfirm --needed rider visual-studio-code-bin
 
 # Apps.
 yay -S --noconfirm --needed google-chrome telegram-desktop
