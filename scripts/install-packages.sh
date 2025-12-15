@@ -22,6 +22,10 @@ make || exit
 sudo make install || exit
 cd -
 
+# Snapper.
+sudo pacman -S --noconfirm --needed snapper
+sudo snapper -c root create-config /
+
 # zsh.
 sudo pacman -S --noconfirm --needed zsh
 yay -S --noconfirm --needed spaceship-prompt
