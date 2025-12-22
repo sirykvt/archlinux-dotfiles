@@ -32,7 +32,7 @@ install_system() {
 		pipewire-alsa
 		pipewire-jack
 		wireplumber
-		pwvucontrol
+		pavucontrol
 		gvfs
 		network-manager-applet
 	)
@@ -100,6 +100,8 @@ install_appearance() {
 
 install_dev() {
 	DEV_PKGS=(
+	    vi
+		vim
 		shfmt
 		gcc
 		make
@@ -131,8 +133,6 @@ install_cli() {
 		jq
 		fd
 		ripgrep
-		zf
-		zoxide
 		resvg
 		chafa
 		yazi
@@ -148,6 +148,7 @@ install_apps() {
 		pcmanfm
 		google-chrome
 		telegram-desktop
+		obs-studio
 	)
 	yay -S --noconfirm --needed "${APPS_PKGS[@]}"
 }
