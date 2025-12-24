@@ -24,8 +24,9 @@ install_system() {
 	SYSTEM_PKGS=(
         vi
         vim
+        less
+        zsh
 		snapper
-		zsh
 		seatd
 		greetd
 		greetd-tuigreet
@@ -35,13 +36,19 @@ install_system() {
 		pipewire-jack
 		wireplumber
 		pavucontrol
-		gvfs
 		network-manager-applet
 		gstreamer-vaapi
 		gst-libav
 		gst-plugins-bad
 		gst-plugins-ugly
 		gst-plugins-good
+		kitty
+		nautilus
+		decibels
+		baobab
+		loupe
+		showtime
+		dconf-editor
 	)
 	yay -S --noconfirm --needed "${SYSTEM_PKGS[@]}"
 
@@ -85,6 +92,7 @@ install_hyprland() {
 		waybar
 		elephant-all
 		walker
+		hyprpicker
 	)
 	yay -S --noconfirm --needed "${WM_PKGS[@]}"
 
@@ -116,6 +124,7 @@ install_dev() {
 		github-cli
 		neovim
 		zed
+		rust
 	)
 	yay -S --noconfirm --needed "${DEV_PKGS[@]}"
 }
@@ -134,17 +143,21 @@ install_cli() {
 		chafa
 		yazi
 		btop
-		systemctl-tui
+		systemd-manager-tui
 	)
 	yay -S --noconfirm --needed "${CLI_PKGS[@]}"
 }
 
 install_apps() {
 	APPS_PKGS=(
-		kitty
 		google-chrome
 		telegram-desktop
 		obs-studio
+		blanket
+		graphs
+		identity
+		video-trimmer
+		gnome-boxes
 	)
 	yay -S --noconfirm --needed "${APPS_PKGS[@]}"
 }
