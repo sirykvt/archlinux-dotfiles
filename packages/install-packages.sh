@@ -22,6 +22,8 @@ install_yay() {
 
 install_system() {
 	SYSTEM_PKGS=(
+        vi
+        vim
 		snapper
 		zsh
 		seatd
@@ -35,6 +37,11 @@ install_system() {
 		pavucontrol
 		gvfs
 		network-manager-applet
+		gstreamer-vaapi
+		gst-libav
+		gst-plugins-bad
+		gst-plugins-ugly
+		gst-plugins-good
 	)
 	yay -S --noconfirm --needed "${SYSTEM_PKGS[@]}"
 
@@ -61,14 +68,14 @@ install_nvidia() {
 	yay -S --noconfirm --needed "${NVIDIA_PKGS[@]}"
 }
 
-install_wm() {
+install_hyprland() {
 	WM_PKGS=(
 		uwsm
 		hyprland
 		hyprpolkitagent
-		xdg-desktop-portal
 		xdg-desktop-portal-hyprland
-		dunst
+		xdg-desktop-portal-gtk
+		mako
 		grim
 		slurp
 		geoclue
@@ -92,7 +99,7 @@ install_appearance() {
 		noto-fonts-emoji
 		nwg-look
 		gnome-themes-extra
-		papirus-icon-theme
+		adwaita-icon-theme
 		qt6ct
 	)
 	yay -S --noconfirm --needed "${APPEARANCE_PKGS[@]}"
@@ -100,8 +107,7 @@ install_appearance() {
 
 install_dev() {
 	DEV_PKGS=(
-	    vi
-		vim
+	    base-devel
 		shfmt
 		gcc
 		make
@@ -109,18 +115,9 @@ install_dev() {
 		clang
 		github-cli
 		neovim
-		rider
 		zed
 	)
 	yay -S --noconfirm --needed "${DEV_PKGS[@]}"
-
-	DEPS_PKGS=(
-		base-devel
-		libusb
-		hidapi
-		dotnet-sdk
-	)
-	yay -S --noconfirm --needed "${DEPS_PKGS[@]}"
 }
 
 install_cli() {
@@ -145,7 +142,6 @@ install_cli() {
 install_apps() {
 	APPS_PKGS=(
 		kitty
-		pcmanfm
 		google-chrome
 		telegram-desktop
 		obs-studio
@@ -166,6 +162,8 @@ install_g810_led() {
 		return
 	fi
 
+	yay -S --noconfirm --needed libusb hidapi
+
 	echo "Installing g810-led..."
 	git clone https://github.com/sirykvt/g810-led.git "${TMP_DIR}/g810-led"
 	cd "${TMP_DIR}/g810-led"
@@ -180,7 +178,7 @@ echo "---"
 install_yay
 install_system
 install_nvidia
-install_wm
+install_hyprland
 install_appearance
 install_dev
 install_cli

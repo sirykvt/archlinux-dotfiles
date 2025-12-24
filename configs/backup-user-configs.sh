@@ -10,6 +10,9 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 DEST="${SCRIPT_DIR}/user"
+if [ -d "${DEST}" ]; then
+    rm -rf "${DEST}"
+fi
 mkdir -p "${DEST}"
 
 echo "Real User: $REAL_USER:$REAL_GROUP"
@@ -23,7 +26,7 @@ copy_file() {
 
     if [ -e "$FULL_SRC" ]; then
         mkdir -p "$(dirname "$FULL_DEST")"
-        
+
         # -r (recursive) allows copying both files and entire directories
         # -L (dereference) if it's a symlink, copy the actual file/directory, not the link
         cp -rL "$FULL_SRC" "$FULL_DEST"

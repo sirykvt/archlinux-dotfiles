@@ -11,7 +11,6 @@
     "tray",
     "hyprland/language",
     "wireplumber",
-    "custom/dunst",
     "clock",
   ],
 
@@ -25,11 +24,11 @@
     "format": "{:%H:%M:%S}",
     "max-length": 25,
   },
-  "custom/dunst": {
-    "exec": "~/.config/waybar/scripts/dunst.sh",
-    "on-click": "dunstctl set-paused toggle",
+  "custom/mako": {
+    "exec": "~/.config/waybar/scripts/mako.sh",
+    "on-click": "makoctl mode -t dnd",
     "restart-interval": 1,
-  },
+  },2
   "custom/nvidia": {
     "exec": "~/.config/waybar/scripts/nvidia.sh",
     "return-type": "json",

@@ -18,6 +18,9 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 DEST="${SCRIPT_DIR}/system"
+if [ -d "${DEST}" ]; then
+    rm -rf "${DEST}"
+fi
 mkdir -p "${DEST}"
 
 echo "Real User: $REAL_USER:$REAL_GROUP"
