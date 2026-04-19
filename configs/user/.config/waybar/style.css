@@ -28,20 +28,6 @@
 @define-color white #d3c6aa;
 @define-color orange #e69875;
 
-/* Pastel TTY Colors */
-@define-color background #212121;
-@define-color background-light #3a3a3a;
-@define-color foreground #e0e0e0;
-@define-color black #5a5a5a;
-@define-color red #ff9a9e;
-@define-color green #b5e8a9;
-@define-color yellow #ffe6a7;
-@define-color blue #63a4ff;
-@define-color magenta #dda0dd;
-@define-color cyan #a3e8e8;
-@define-color white #ffffff;
-@define-color orange #ff8952;
-
 /* Gruvbox Dark Colors */
 @define-color background #282828;
 @define-color background-light #3c3836;
@@ -55,6 +41,20 @@
 @define-color cyan #689d6a;
 @define-color white #ebdbb2;
 @define-color orange #d65d0e;
+
+/* Pastel TTY Colors */
+@define-color background #000000;
+@define-color background-light #3a3a3a;
+@define-color foreground #e0e0e0;
+@define-color black #5a5a5a;
+@define-color red #ff9a9e;
+@define-color green #b5e8a9;
+@define-color yellow #ffe6a7;
+@define-color blue #63a4ff;
+@define-color magenta #dda0dd;
+@define-color cyan #a3e8e8;
+@define-color white #ffffff;
+@define-color orange #ff8952;
 
 /* Module-specific colors */
 @define-color workspaces-color @foreground;
@@ -97,7 +97,7 @@ window#waybar {
 #tray {
     padding: 0 10px;
     margin: 0 2px;
-    border-bottom: 2px solid transparent;
+    /* border-bottom: 2px solid transparent; */
     background-color: transparent;
     min-width: 35px;
 }
